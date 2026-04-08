@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Creative Designer</title>
+  <meta name="description" content="Product Designer Portfolio - Creative Design & Development">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-text">A.</span>
+      </a>
+      <div class="nav-links">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#about" class="nav-link">About</a>
+      </div>
+      <div class="nav-contact">
+        <span class="nav-location">Toronto, ON</span>
+        <a href="mailto:hello@example.com" class="nav-email">hello@example.com</a>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#hero" class="mobile-nav-link">Home</a>
+    <a href="#work" class="mobile-nav-link">Work</a>
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="mailto:hello@example.com" class="mobile-nav-link">Contact</a>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <p class="hero-label">Product Designer</p>
+      <h1 class="hero-title">
+        <span class="hero-line" data-scramble>Designing</span>
+        <span class="hero-line" data-scramble>Thoughtful</span>
+        <span class="hero-line accent" data-scramble>Experiences.</span>
+      </h1>
+      <div class="hero-scramble">
+        <span class="scramble-text" id="scrambleText"></span>
+        <span class="scramble-cursor">_</span>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== WORK / PROJECTS ========== -->
+  <section class="work" id="work">
+    <div class="section-header">
+      <span class="section-label">Selected Work</span>
+      <h2 class="section-title reveal-text">Projects I've been<br>working on recently.</h2>
+    </div>
+
+    <div class="work-grid">
+      <!-- Project Card 1 -->
+      <a href="#" class="work-card">
+        <div class="work-card-image">
+          <div class="work-card-placeholder" style="background: linear-gradient(135deg, #05996D, #18493D);">
+            <span>01</span>
+          </div>
+          <div class="work-card-overlay">
+            <span class="work-card-plus">+</span>
+          </div>
+        </div>
+        <div class="work-card-info">
+          <h3 class="work-card-title">Design System</h3>
+          <span class="work-card-tag">UI/UX</span>
+        </div>
+      </a>
+
+      <!-- Project Card 2 -->
+      <a href="#" class="work-card">
+        <div class="work-card-image">
+          <div class="work-card-placeholder" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+            <span>02</span>
+          </div>
+          <div class="work-card-overlay">
+            <span class="work-card-plus">+</span>
+          </div>
+        </div>
+        <div class="work-card-info">
+          <h3 class="work-card-title">Mobile App</h3>
+          <span class="work-card-tag">Product</span>
+        </div>
+      </a>
+
+      <!-- Project Card 3 -->
+      <a href="#" class="work-card">
+        <div class="work-card-image">
+          <div class="work-card-placeholder" style="background: linear-gradient(135deg, #2d1b69, #11001c);">
+            <span>03</span>
+          </div>
+          <div class="work-card-overlay">
+            <span class="work-card-plus">+</span>
+          </div>
+        </div>
+        <div class="work-card-info">
+          <h3 class="work-card-title">Web Platform</h3>
+          <span class="work-card-tag">Development</span>
+        </div>
+      </a>
+
+      <!-- Project Card 4 -->
+      <a href="#" class="work-card">
+        <div class="work-card-image">
+          <div class="work-card-placeholder" style="background: linear-gradient(135deg, #4a1942, #1a1a2e);">
+            <span>04</span>
+          </div>
+          <div class="work-card-overlay">
+            <span class="work-card-plus">+</span>
+          </div>
+        </div>
+        <div class="work-card-info">
+          <h3 class="work-card-title">Brand Identity</h3>
+          <span class="work-card-tag">Branding</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="section-header">
+        <span class="section-label">About Me</span>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p class="about-paragraph reveal-text">
+            I'm a product designer based in Toronto,
+            focused on creating meaningful digital experiences
+            that bridge the gap between people and technology.
+          </p>
+          <p class="about-paragraph reveal-text">
+            With a background in both design and development,
+            I bring a unique perspective to every project,
+            ensuring both form and function work in harmony.
+          </p>
+          <p class="about-paragraph reveal-text">
+            Currently open to new opportunities and collaborations.
+            Let's create something great together.
+          </p>
+        </div>
+        <div class="about-details">
+          <div class="about-detail-group">
+            <h4 class="detail-label">Experience</h4>
+            <p class="detail-value">5+ Years</p>
+          </div>
+          <div class="about-detail-group">
+            <h4 class="detail-label">Focus</h4>
+            <p class="detail-value">Product Design</p>
+          </div>
+          <div class="about-detail-group">
+            <h4 class="detail-label">Tools</h4>
+            <p class="detail-value">Figma, Framer, Code</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <h3 class="footer-heading">Let's work<br>together.</h3>
+        <a href="mailto:hello@example.com" class="footer-email">hello@example.com</a>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="#" class="footer-link">Twitter</a>
+          <a href="#" class="footer-link">LinkedIn</a>
+          <a href="#" class="footer-link">Dribbble</a>
+          <a href="#" class="footer-link">GitHub</a>
+        </div>
+        <p class="footer-copy">&copy; 2026. Built with care.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- SplitType -->
+  <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+
+  <script src="js/text-scramble.js"></script>
+  <script src="js/scramble-title.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/target-cursor.js"></script>
+</body>
+</html>
