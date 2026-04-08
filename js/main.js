@@ -171,7 +171,25 @@ function initScrollAnimations() {
   });
 
   // ---- 作品卡片入场动画 ----
-  gsap.utils.toArray('.work-card').forEach((card, i) => {
+  // Projects header
+  gsap.fromTo(
+    '.projects-header',
+    { y: 60, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.projects-header',
+        start: 'top 90%',
+        toggleActions: 'play none none reverse'
+      }
+    }
+  );
+
+  // Project cards
+  gsap.utils.toArray('.project-card').forEach((card, i) => {
     gsap.fromTo(
       card,
       {

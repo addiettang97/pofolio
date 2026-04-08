@@ -9,12 +9,25 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- ========== LOADING SCRIM ========== -->
+  <div class="loading-scrim" id="loadingScrim">
+    <div class="loading-birds" id="asciiBirds"><pre></pre></div>
+    <div class="loading-content">
+      <pre class="loading-border">    ┌                               ┐</pre>
+      <pre class="loading-title">     Loading Portfolio   </pre>
+      <pre class="loading-bar">    <span class="loading-filled"></span><span class="loading-empty">░░░░░░░░░░░░░░░░░░░░░░░░░</span></pre>
+      <pre class="loading-border">    └                               ┘</pre>
+    </div>
+  </div>
+  <script src="js/bird-frames.js"></script>
+  <script src="js/ascii-birds.js"></script>
 
   <!-- ========== NAVIGATION ========== -->
   <nav class="nav" id="nav">
@@ -28,8 +41,8 @@
         <a href="#about" class="nav-link">About</a>
       </div>
       <div class="nav-contact">
-        <span class="nav-location">Toronto, ON</span>
-        <a href="mailto:hello@example.com" class="nav-email">hello@example.com</a>
+        <span class="nav-location">China, Shenzhen</span>
+        <span class="nav-time" id="navTime"></span>
       </div>
       <!-- Mobile Menu Toggle -->
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -49,17 +62,19 @@
 
   <!-- ========== HERO ========== -->
   <section class="hero" id="hero">
-    <div class="hero-content">
-      <p class="hero-label">Product Designer</p>
-      <h1 class="hero-title">
-        <span class="hero-line" data-scramble>Designing</span>
-        <span class="hero-line" data-scramble>Thoughtful</span>
-        <span class="hero-line accent" data-scramble>Experiences.</span>
-      </h1>
-      <div class="hero-scramble">
-        <span class="scramble-text" id="scrambleText"></span>
-        <span class="scramble-cursor">_</span>
+    <div class="hero-row">
+      <div class="hero-content">
+        <p class="hero-label">2022 - Now</p>
+        <h1 class="hero-title">
+          <span class="hero-line" data-scramble>Visual</span>
+          <span class="hero-line" data-scramble>Designer</span>
+        </h1>
+        <div class="hero-scramble">
+          <span class="scramble-text" id="scrambleText"></span>
+          <span class="scramble-cursor">_</span>
+        </div>
       </div>
+      <div class="hero-ascii-text" id="asciiText"></div>
     </div>
     <div class="hero-scroll-hint">
       <span>Scroll</span>
@@ -68,74 +83,111 @@
   </section>
 
   <!-- ========== WORK / PROJECTS ========== -->
-  <section class="work" id="work">
-    <div class="section-header">
-      <span class="section-label">Selected Work</span>
-      <h2 class="section-title reveal-text">Projects I've been<br>working on recently.</h2>
+  <section class="projects" id="work">
+    <div class="projects-header">
+      <div class="projects-header-left">
+        <span class="section-label">(02)</span>
+        <h2 class="projects-title reveal-text">SELECTED<br/>WORKS</h2>
+      </div>
+      <div class="projects-header-right">
+        <p class="projects-desc">Curated selection of recent design projects spanning web apps, creative tools, and interactive experiences.</p>
+      </div>
     </div>
 
-    <div class="work-grid">
-      <!-- Project Card 1 -->
-      <a href="#" class="work-card">
-        <div class="work-card-image">
-          <div class="work-card-placeholder" style="background: linear-gradient(135deg, #05996D, #18493D);">
+    <div class="projects-grid">
+      <a href="#" class="project-card">
+        <div class="project-img">
+          <div class="project-placeholder" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
             <span>01</span>
           </div>
-          <div class="work-card-overlay">
-            <span class="work-card-plus">+</span>
-          </div>
+          <div class="project-overlay"></div>
         </div>
-        <div class="work-card-info">
-          <h3 class="work-card-title">Design System</h3>
-          <span class="work-card-tag">UI/UX</span>
+        <div class="project-info">
+          <h3 class="project-title">E-Commerce Platform</h3>
+          <div class="project-meta-row">
+            <span>NEXT.JS / REACT</span>
+            <span>2024</span>
+          </div>
         </div>
       </a>
 
-      <!-- Project Card 2 -->
-      <a href="#" class="work-card">
-        <div class="work-card-image">
-          <div class="work-card-placeholder" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+      <a href="#" class="project-card">
+        <div class="project-img">
+          <div class="project-placeholder" style="background: linear-gradient(135deg, #0f3460, #533483);">
             <span>02</span>
           </div>
-          <div class="work-card-overlay">
-            <span class="work-card-plus">+</span>
-          </div>
+          <div class="project-overlay"></div>
         </div>
-        <div class="work-card-info">
-          <h3 class="work-card-title">Mobile App</h3>
-          <span class="work-card-tag">Product</span>
+        <div class="project-info">
+          <h3 class="project-title">Analytics Dashboard</h3>
+          <div class="project-meta-row">
+            <span>VUE / D3.JS</span>
+            <span>2024</span>
+          </div>
         </div>
       </a>
 
-      <!-- Project Card 3 -->
-      <a href="#" class="work-card">
-        <div class="work-card-image">
-          <div class="work-card-placeholder" style="background: linear-gradient(135deg, #2d1b69, #11001c);">
+      <a href="#" class="project-card">
+        <div class="project-img">
+          <div class="project-placeholder" style="background: linear-gradient(135deg, #2d1b69, #11998e);">
             <span>03</span>
           </div>
-          <div class="work-card-overlay">
-            <span class="work-card-plus">+</span>
-          </div>
+          <div class="project-overlay"></div>
         </div>
-        <div class="work-card-info">
-          <h3 class="work-card-title">Web Platform</h3>
-          <span class="work-card-tag">Development</span>
+        <div class="project-info">
+          <h3 class="project-title">Creative Portfolio CMS</h3>
+          <div class="project-meta-row">
+            <span>ASTRO / SANITY</span>
+            <span>2023</span>
+          </div>
         </div>
       </a>
 
-      <!-- Project Card 4 -->
-      <a href="#" class="work-card">
-        <div class="work-card-image">
-          <div class="work-card-placeholder" style="background: linear-gradient(135deg, #4a1942, #1a1a2e);">
+      <a href="#" class="project-card">
+        <div class="project-img">
+          <div class="project-placeholder" style="background: linear-gradient(135deg, #1a1a2e, #e94560);">
             <span>04</span>
           </div>
-          <div class="work-card-overlay">
-            <span class="work-card-plus">+</span>
+          <div class="project-overlay"></div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Real-time Chat App</h3>
+          <div class="project-meta-row">
+            <span>NODE / SOCKET.IO</span>
+            <span>2023</span>
           </div>
         </div>
-        <div class="work-card-info">
-          <h3 class="work-card-title">Brand Identity</h3>
-          <span class="work-card-tag">Branding</span>
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-img">
+          <div class="project-placeholder" style="background: linear-gradient(135deg, #0c0c1d, #4834d4);">
+            <span>05</span>
+          </div>
+          <div class="project-overlay"></div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">3D Product Viewer</h3>
+          <div class="project-meta-row">
+            <span>THREE.JS / WEBGL</span>
+            <span>2023</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-img">
+          <div class="project-placeholder" style="background: linear-gradient(135deg, #200122, #6f0000);">
+            <span>06</span>
+          </div>
+          <div class="project-overlay"></div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">AI Writing Assistant</h3>
+          <div class="project-meta-row">
+            <span>PYTHON / OPENAI</span>
+            <span>2024</span>
+          </div>
         </div>
       </a>
     </div>
@@ -186,7 +238,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-left">
-        <h3 class="footer-heading">Let's work<br>together.</h3>
+        <h3 class="footer-heading reveal-text">Let's work<br>together.</h3>
         <a href="mailto:hello@example.com" class="footer-email">hello@example.com</a>
       </div>
       <div class="footer-right">
@@ -207,10 +259,56 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <!-- SplitType -->
   <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
   <script src="js/text-scramble.js"></script>
   <script src="js/scramble-title.js"></script>
   <script src="js/main.js"></script>
   <script src="js/target-cursor.js"></script>
+  <script src="js/ascii-text.js"></script>
+  <script>
+    (function() {
+      var timeEl = document.getElementById('navTime');
+      function updateTime() {
+        var now = new Date();
+        timeEl.textContent = now.toLocaleTimeString('en-US', {
+          timeZone: 'Asia/Shanghai',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        });
+      }
+      updateTime();
+      setInterval(updateTime, 1000);
+    })();
+  </script>
+  <script>
+    (function() {
+      var scrim = document.getElementById('loadingScrim');
+      var filled = scrim.querySelector('.loading-filled');
+      var empty = scrim.querySelector('.loading-empty');
+      var totalBars = 25;
+      var current = 0;
+      var duration = 1000;
+      var interval = duration / totalBars;
+
+      var timer = setInterval(function() {
+        current++;
+        filled.textContent = '█'.repeat(current);
+        empty.textContent = '░'.repeat(totalBars - current);
+        if (current >= totalBars) {
+          clearInterval(timer);
+          setTimeout(function() {
+            scrim.classList.add('loading-done');
+            setTimeout(function() {
+              scrim.style.display = 'none';
+            }, 800);
+          }, 200);
+        }
+      }, interval);
+    })();
+  </script>
 </body>
 </html>
