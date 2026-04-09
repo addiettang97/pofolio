@@ -6,11 +6,6 @@
   <title>Portfolio | Creative Designer</title>
   <meta name="description" content="Product Designer Portfolio - Creative Design & Development">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -39,6 +34,8 @@
         <a href="#hero" class="nav-link active">Home</a>
         <a href="#work" class="nav-link">Work</a>
         <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#playground" class="nav-link">Playground</a>
       </div>
       <div class="nav-contact">
         <span class="nav-location">China, Shenzhen</span>
@@ -57,11 +54,23 @@
     <a href="#hero" class="mobile-nav-link">Home</a>
     <a href="#work" class="mobile-nav-link">Work</a>
     <a href="#about" class="mobile-nav-link">About</a>
-    <a href="mailto:hello@example.com" class="mobile-nav-link">Contact</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+    <a href="#playground" class="mobile-nav-link">Playground</a>
   </div>
 
   <!-- ========== HERO ========== -->
   <section class="hero" id="hero">
+    <!-- Mode Switcher -->
+    <div class="mode-switcher">
+      <span class="mode-label">MODE :</span>
+      <span class="mode-slashes">////////////////////////</span>
+      <button class="mode-btn on" data-mode="dark"><span class="mode-star">*</span>BBBLACK</button>
+      <button class="mode-btn" data-mode="light"><span class="mode-star">*</span>LLLIGHT</button>
+    </div>
+
+    <!-- Hero Description -->
+    <p class="hero-desc">Addie is a visual designer focused in animation and interaction. Collaborating with companies, agencies, and individuals to create immersive online experiences.</p>
+
     <div class="hero-row">
       <div class="hero-content">
         <p class="hero-label">2022 - Now</p>
@@ -234,17 +243,31 @@
     </div>
   </section>
 
+  <!-- ========== FLOWING MENU ========== -->
+  <section class="flowing-section" id="contact">
+    <div class="menu-wrap">
+      <nav class="menu">
+        <div class="menu__item">
+          <a class="menu__item-link" href="mailto:462701060@qq.com">Contact Me</a>
+          <div class="marquee">
+            <div class="marquee__inner"></div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+
   <!-- ========== FOOTER ========== -->
-  <footer class="footer">
+  <footer class="footer" id="playground">
+    <div class="footer-garden" id="footerGarden"></div>
     <div class="footer-inner">
       <div class="footer-left">
-        <h3 class="footer-heading reveal-text">Let's work<br>together.</h3>
-        <a href="mailto:hello@example.com" class="footer-email">hello@example.com</a>
+        <h3 class="footer-heading reveal-text">Let's play<br>together.</h3>
       </div>
       <div class="footer-right">
         <div class="footer-links">
-          <a href="#" class="footer-link">Twitter</a>
-          <a href="#" class="footer-link">LinkedIn</a>
+          <a href="#" class="footer-link">Resume</a>
+          <a href="#" class="footer-link">Behance</a>
           <a href="#" class="footer-link">Dribbble</a>
           <a href="#" class="footer-link">GitHub</a>
         </div>
@@ -267,6 +290,8 @@
   <script src="js/main.js"></script>
   <script src="js/target-cursor.js"></script>
   <script src="js/ascii-text.js"></script>
+  <script src="js/footer-garden.js"></script>
+  <script src="js/flowing-menu.js"></script>
   <script>
     (function() {
       var timeEl = document.getElementById('navTime');
@@ -308,6 +333,25 @@
           }, 200);
         }
       }, interval);
+    })();
+  </script>
+  <script>
+    (function() {
+      var btns = document.querySelectorAll('.mode-btn');
+      var html = document.documentElement;
+
+      btns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          btns.forEach(function(b) { b.classList.remove('on'); });
+          btn.classList.add('on');
+          var mode = btn.getAttribute('data-mode');
+          if (mode === 'light') {
+            html.setAttribute('data-theme', 'light');
+          } else {
+            html.removeAttribute('data-theme');
+          }
+        });
+      });
     })();
   </script>
 </body>

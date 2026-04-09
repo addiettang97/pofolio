@@ -191,7 +191,12 @@
     if (w === 0 || h === 0) return;
 
     var camera = new THREE.PerspectiveCamera(45, w / h, 1, 1000);
-    camera.position.z = 30;
+    // Pull camera back on small screens so full text fits
+    var baseZ = 30;
+    if (w < 768) {
+      baseZ = 32;
+    }
+    camera.position.z = baseZ;
     var scene = new THREE.Scene();
 
     var textCanvas = new CanvasTxt(TEXT, {
