@@ -8,6 +8,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
+  <script>if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
 </head>
 <body>
 
@@ -104,7 +105,7 @@
     </div>
 
     <div class="projects-grid">
-      <a href="#" class="project-card">
+      <a href="project.html" class="project-card">
         <div class="project-img">
           <div class="project-placeholder" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
             <span>01</span>
@@ -312,6 +313,14 @@
   <script>
     (function() {
       var scrim = document.getElementById('loadingScrim');
+
+      // Skip loading if already visited this session
+      if (sessionStorage.getItem('loaded')) {
+        scrim.style.display = 'none';
+        return;
+      }
+      sessionStorage.setItem('loaded', '1');
+
       var filled = scrim.querySelector('.loading-filled');
       var empty = scrim.querySelector('.loading-empty');
       var totalBars = 25;
@@ -340,6 +349,16 @@
       var btns = document.querySelectorAll('.mode-btn');
       var html = document.documentElement;
 
+      // Restore theme from localStorage on load
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light') {
+        html.setAttribute('data-theme', 'light');
+        btns.forEach(function(b) {
+          b.classList.remove('on');
+          if (b.getAttribute('data-mode') === 'light') b.classList.add('on');
+        });
+      }
+
       btns.forEach(function(btn) {
         btn.addEventListener('click', function() {
           btns.forEach(function(b) { b.classList.remove('on'); });
@@ -347,8 +366,10 @@
           var mode = btn.getAttribute('data-mode');
           if (mode === 'light') {
             html.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
           } else {
             html.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'dark');
           }
         });
       });

@@ -260,4 +260,15 @@
     currentLeaveHandler = leaveHandler;
     target.addEventListener('mouseleave', leaveHandler);
   }, { passive: true });
+
+  // Hide custom cursor in footer garden area (watering can only)
+  var footer = document.querySelector('.footer');
+  if (footer) {
+    footer.addEventListener('mouseenter', function () {
+      gsap.to(cursor, { opacity: 0, duration: 0.15 });
+    });
+    footer.addEventListener('mouseleave', function () {
+      gsap.to(cursor, { opacity: 1, duration: 0.15 });
+    });
+  }
 })();

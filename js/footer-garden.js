@@ -6,15 +6,16 @@
   var garden = document.getElementById('footerGarden');
   if (!garden) return;
 
-  // Colors
-  var H  = 'rgb(25, 25, 24)';
-  var G  = 'rgb(0, 210, 210)';
-  var LG = 'rgb(80, 255, 180)';
-  var Y  = 'rgb(220, 240, 255)';
-  var PK = 'rgb(255, 0, 110)';
-  var RD = 'rgb(255, 60, 0)';
-  var MG = 'rgb(190, 0, 255)';
-  var BL = 'rgb(0, 150, 255)';
+  // Colors — adapt to theme
+  var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+
+  var G  = isLight ? 'rgb(0, 140, 140)'   : 'rgb(0, 210, 210)';
+  var LG = isLight ? 'rgb(30, 160, 100)'   : 'rgb(80, 255, 180)';
+  var Y  = isLight ? 'rgb(80, 80, 60)'     : 'rgb(220, 240, 255)';
+  var PK = isLight ? 'rgb(200, 0, 80)'     : 'rgb(255, 0, 110)';
+  var RD = isLight ? 'rgb(200, 40, 0)'     : 'rgb(255, 60, 0)';
+  var MG = isLight ? 'rgb(140, 0, 200)'    : 'rgb(190, 0, 255)';
+  var BL = isLight ? 'rgb(0, 100, 200)'    : 'rgb(0, 150, 255)';
 
   // Plant templates
   var GRASS = [[' \\ |/', G, false]];
@@ -293,4 +294,36 @@
 
     setInterval(bunnyRoam, 5000);
   }
+
+  // Re-color plants when theme changes
+  function getColors() {
+    var light = document.documentElement.getAttribute('data-theme') === 'light';
+    return {
+      G:  light ? 'rgb(0, 140, 140)'  : 'rgb(0, 210, 210)',
+      LG: light ? 'rgb(30, 160, 100)' : 'rgb(80, 255, 180)',
+      Y:  light ? 'rgb(80, 80, 60)'   : 'rgb(220, 240, 255)',
+      PK: light ? 'rgb(200, 0, 80)'   : 'rgb(255, 0, 110)',
+      RD: light ? 'rgb(200, 40, 0)'   : 'rgb(255, 60, 0)',
+      MG: light ? 'rgb(140, 0, 200)'  : 'rgb(190, 0, 255)',
+      BL: light ? 'rgb(0, 100, 200)'  : 'rgb(0, 150, 255)'
+    };
+  }
+
+  var colorMap = {
+    'rgb(0, 210, 210)': 'G', 'rgb(0, 140, 140)': 'G',
+    'rgb(80, 255, 180)': 'LG', 'rgb(30, 160, 100)': 'LG',
+    'rgb(220, 240, 255)': 'Y', 'rgb(80, 80, 60)': 'Y',
+    'rgb(255, 0, 110)': 'PK', 'rgb(200, 0, 80)': 'PK',
+    'rgb(255, 60, 0)': 'RD', 'rgb(200, 40, 0)': 'RD',
+    'rgb(190, 0, 255)': 'MG', 'rgb(140, 0, 200)': 'MG',
+    'rgb(0, 150, 255)': 'BL', 'rgb(0, 100, 200)': 'BL'
+  };
+
+  new MutationObserver(function () {
+    var c = getColors();
+    garden.querySelectorAll('.plant .ln').forEach(function (ln) {
+      var key = colorMap[ln.style.color];
+      if (key && c[key]) ln.style.color = c[key];
+    });
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 })();
